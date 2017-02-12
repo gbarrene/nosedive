@@ -63,19 +63,19 @@
       transform: translate3d(242px, 200px, 0px);
     }
     .gwd-img-20px {
-      transform: translate3d(139px, 307px, 0px);
+      transform: translate3d(139px, 368px, 0px);
     }
     .gwd-img-3p1r {
-      transform: translate3d(267px, 307px, 0px);
+      transform: translate3d(267px, 368px, 0px);
     }
     .gwd-img-vimz {
-      transform: translate3d(395px, 307px, 0px);
+      transform: translate3d(395px, 368px, 0px);
     }
     .gwd-img-f8vm {
-      transform: translate3d(524px, 307px, 0px);
+      transform: translate3d(524px, 368px, 0px);
     }
     .gwd-img-16a0 {
-      transform: translate3d(654px, 307px, 0px);
+      transform: translate3d(654px, 368px, 0px);
     }
     @keyframes gwd-empty-animation {
       0% {
@@ -94,25 +94,31 @@
     }
     .gwd-span-lq5v {
       position: absolute;
-      left: 383px;
       font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue";
-      top: 79px;
+      font-size: 40px;
+      left: 275px;
+      top: 81px;
     }
     .gwd-span-skqb {
       position: absolute;
       font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue";
-      font-size: 36px;
-      left: 181px;
-      top: 482px;
+      top: 532px;
+      font-size: 40px;
+      left: 302px;
+    }
+    .gwd-p-1exl {
+      position: absolute;
+      font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue";
+      top: 278px;
+      font-size: 40px;
+      width: 400px;
+      left: 305px;
     }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
   <script type="text/javascript" gwd-events="handlers">
     window.gwd = window.gwd || {};
-    gwd.on5starclick = function(event) {
-      // on 5start click --- not yet implemented
-    };
     gwd.auto_Star1Touchstart = function(event) {
       // GWD Predefined Function
       gwd.actions.events.setInlineStyle('star1', 'opacity: 1; ');
@@ -231,6 +237,16 @@
       // GWD Predefined Function
       gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
     };
+
+    function star_vote(rate) {
+      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      gwd.actions.events.setInlineStyle('number_stars', 'opacity: 1.0; ');
+      document.getElementById("number_stars").innerHTML = "Your rate: " + rate + " stars!";
+    }
+    gwd.auto_Star5Click = function(event) {
+      // GWD Predefined Function
+      star_vote(5);
+    };
   </script>
   <script type="text/javascript" gwd-events="registration">
     // Support code for event handling in Google Web Designer
@@ -257,6 +273,7 @@
       gwd.actions.events.addHandler('star3', 'touchend', gwd.auto_Star3Touchend, false);
       gwd.actions.events.addHandler('star4', 'touchend', gwd.auto_Star4Touchend, false);
       gwd.actions.events.addHandler('star5', 'touchend', gwd.auto_Star5Touchend, false);
+      gwd.actions.events.addHandler('star5', 'click', gwd.auto_Star5Click, false);
     };
     gwd.actions.events.deregisterEventHandlers = function(event) {
       gwd.actions.events.removeHandler('star1', 'touchstart', gwd.auto_Star1Touchstart, false);
@@ -280,6 +297,7 @@
       gwd.actions.events.removeHandler('star3', 'touchend', gwd.auto_Star3Touchend, false);
       gwd.actions.events.removeHandler('star4', 'touchend', gwd.auto_Star4Touchend, false);
       gwd.actions.events.removeHandler('star5', 'touchend', gwd.auto_Star5Touchend, false);
+      gwd.actions.events.removeHandler('star5', 'click', gwd.auto_Star5Click, false);
     };
     document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
     document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
@@ -294,6 +312,7 @@
   <img src="assets/star_pink.png" class="gwd-img-1t9u gwd-img-f4nc gwd-img-2xz1 gwd-img-1ert gwd-img-3p1r" style="opacity: 0.15;" id="star2">
   <img src="assets/star_pink.png" class="gwd-img-1t9u gwd-img-f4nc gwd-img-2xz1 gwd-img-1ert gwd-img-20px gwd-gen-npc5gwdanimation" style="opacity: 0.15;" id="star1">
   <img src="assets/arrows.png" class="gwd-img-rape" style="opacity: 0.75;" id="reload"><span class="gwd-span-lq5v">Swisscom Digital Lab</span><span class="gwd-span-skqb" style="opacity: 0;" id="thanks">Thanks for voting!</span>
+  <p class="gwd-p-1exl" style="opacity: 0;" id="number_stars">stars!</p>
 </body>
 
 </html>
