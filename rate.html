@@ -119,6 +119,11 @@
   <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
   <script type="text/javascript" gwd-events="handlers">
     window.gwd = window.gwd || {};
+    function star_vote(rate) {
+      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      gwd.actions.events.setInlineStyle('number_stars', 'opacity: 1.0; ');
+      document.getElementById("number_stars").innerHTML = "Your rate: " + rate + " stars!";
+    }
     gwd.auto_Star1Touchstart = function(event) {
       // GWD Predefined Function
       gwd.actions.events.setInlineStyle('star1', 'opacity: 1; ');
@@ -219,30 +224,40 @@
     };
     gwd.auto_Star1Touchend = function(event) {
       // GWD Predefined Function
-      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      star_vote(1);
     };
     gwd.auto_Star2Touchend = function(event) {
       // GWD Predefined Function
-      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      star_vote(2);
     };
     gwd.auto_Star3Touchend = function(event) {
       // GWD Predefined Function
-      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      star_vote(3);
     };
     gwd.auto_Star4Touchend = function(event) {
       // GWD Predefined Function
-      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      star_vote(4);
     };
     gwd.auto_Star5Touchend = function(event) {
       // GWD Predefined Function
-      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
+      star_vote(5);
     };
-
-    function star_vote(rate) {
-      gwd.actions.events.setInlineStyle('thanks', 'opacity: 1.0; ');
-      gwd.actions.events.setInlineStyle('number_stars', 'opacity: 1.0; ');
-      document.getElementById("number_stars").innerHTML = "Your rate: " + rate + " stars!";
-    }
+    gwd.auto_Star1Click = function(event) {
+      // GWD Predefined Function
+      star_vote(1);
+    };
+    gwd.auto_Star2Click = function(event) {
+      // GWD Predefined Function
+      star_vote(2);
+    };
+    gwd.auto_Star3Click = function(event) {
+      // GWD Predefined Function
+      star_vote(3);
+    };
+    gwd.auto_Star4Click = function(event) {
+      // GWD Predefined Function
+      star_vote(4);
+    };
     gwd.auto_Star5Click = function(event) {
       // GWD Predefined Function
       star_vote(5);
@@ -273,6 +288,10 @@
       gwd.actions.events.addHandler('star3', 'touchend', gwd.auto_Star3Touchend, false);
       gwd.actions.events.addHandler('star4', 'touchend', gwd.auto_Star4Touchend, false);
       gwd.actions.events.addHandler('star5', 'touchend', gwd.auto_Star5Touchend, false);
+      gwd.actions.events.addHandler('star1', 'click', gwd.auto_Star1Click, false);
+      gwd.actions.events.addHandler('star2', 'click', gwd.auto_Star2Click, false);
+      gwd.actions.events.addHandler('star3', 'click', gwd.auto_Star3Click, false);
+      gwd.actions.events.addHandler('star4', 'click', gwd.auto_Star4Click, false);
       gwd.actions.events.addHandler('star5', 'click', gwd.auto_Star5Click, false);
     };
     gwd.actions.events.deregisterEventHandlers = function(event) {
@@ -297,6 +316,10 @@
       gwd.actions.events.removeHandler('star3', 'touchend', gwd.auto_Star3Touchend, false);
       gwd.actions.events.removeHandler('star4', 'touchend', gwd.auto_Star4Touchend, false);
       gwd.actions.events.removeHandler('star5', 'touchend', gwd.auto_Star5Touchend, false);
+      gwd.actions.events.removeHandler('star1', 'click', gwd.auto_Star1Click, false);
+      gwd.actions.events.removeHandler('star2', 'click', gwd.auto_Star2Click, false);
+      gwd.actions.events.removeHandler('star3', 'click', gwd.auto_Star3Click, false);
+      gwd.actions.events.removeHandler('star4', 'click', gwd.auto_Star4Click, false);
       gwd.actions.events.removeHandler('star5', 'click', gwd.auto_Star5Click, false);
     };
     document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
